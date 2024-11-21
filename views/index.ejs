@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Mix It Up!</title>
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+<body>
+ <%- include('./partials/header'); %>
+ <section class="text-gray-600 body-font">
+  <div class="container mx-auto flex px-5 py-5 items-center justify-center flex-col">
+   <% if(locals.image) { %>
+    <img class="w-full max-w-[500px] mb-10 object-cover object-center rounded" src="<%= image %>" alt="drink">
+   <% } else { %>
+    <img class="w-full max-w-[500px] mb-10 object-cover object-center rounded" alt="hero" src="/images/drinks.jpg">
+   <% } %> 
+    <div class="text-center lg:w-2/3 w-full">
+     <% if(locals.drink && locals.instructions && locals.ingredientsWithMeasures) { %>
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"> Your Drink of Randomness: <%= drink %> </h1>
+      <ul class="list-outside text-center mb-10">
+       <% ingredientsWithMeasures.forEach(function(item) { %>
+        <li class="list-disc"><%= item.ingredient %>: <%= item.measure %></li>
+       <% }); %>
+      </ul>
+      <p class="mb-8 leading-relaxed"> <%= instructions %> </p>
+       <% } else { %>
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Find Your Perfect Drink: A New Favorite Awaits!</h1>
+        <p class="mb-8 leading-relaxed">Curious about the perfect drink to enjoy today? Whether you're craving something refreshing, sweet, or bold, let’s mix it up and find your new favorite to savor!</p>
+       <% } %>
+      <div class="flex justify-center">
+       <form action="/drink" method="POST">
+        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Mix it Up</button>
+       </form>
+      </div>
+    </div>
+  </div>
+</section>
+ <%- include('./partials/footer'); %>
+</body>
+</html>
