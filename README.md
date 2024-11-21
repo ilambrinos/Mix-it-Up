@@ -1,6 +1,6 @@
 # Mix-it-Up
 
-Mix it Up is a NodeJs project that generates a random drink, the ingredients and the instructions on how to make it. Cheers!
+Mix it Up is a Express/NodeJs project that generates a random drink, the ingredients and the instructions on how to make it from the public API https://www.thecocktaildb.com/api.php. Cheers!
 
 ## Project Setup
 
